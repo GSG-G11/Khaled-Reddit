@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit</title>
+</head>
+<body>
+    
+    <header class="home">
+        <a href="/" class="logo">
+            <img src="../assets/logo.png" style="width: 30px;">
+            <h1>Khaled Reddit</h1>
+        </a>
+        <form class="search">
+            <label id="search">
+                <input type="search" placeholder="Search here..." id="input-search">
+            </label>
+            <button type="submit">
+                <img src="../assets/search.jpg" style="width: 30px;">
+            </button>
+        </form>
+        <nav class="navbar">
+            <a href="../html/sign-up.html" id="sign-up">sign up</a>
+            <a href="../html/log-in.html" id="log-in">log in</a>
+            <button class="username">Khaled</button>
+            <dev class="user-list">
+                <a href="../index.html" class="home-page">Home</a>
+                <a href="../html/log-in.html" class="profile">Profile</a>
+                <a href="../html/sign-up.html" class="sign-out"></a>
+            </dev>
+        </nav>
+    </header>
+
+<section class="options-user">
+    <button class="post-btn">POST</button>
+    <button class="comment-btn">COMMENTES</button>
+</section>
+<section class="container">
+    <section class="left-profile">
+        <section class="posts">
+            <section class="user-post">
+                <section class="post-vote">
+                    <img class="up-vote" src="./assets/up-vote.webp" style="width: 30px;">
+                    <span class="vote">1</span>
+                    <img class="down-vote" src="./assets/down-vote.png" style="width: 30px;">
+                </section>
+                <section class="post">
+                    <section class="user-post-inf">
+                        <img class="user-info" src="./assets/user-img.png" style="width: 30px;">
+                    </section>
+                    <section class="post-text">
+                        <h3 class="post-title">hello</h3>
+                        <p class="post-decription"> test test test</p>
+                    </section>
+                    <section class="post-options">
+                        <button class="post-option">commentes</button>
+                        <button class="post-option">Delete</button>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <section class="right-profile">
+        <span class="user-background"></span>
+        <img class="user-img" src="../assets/user-img.png" style="width: 30px;">
+        <p class="user-name">Khaled</p>
+        <button class="add-post">NEW POST</button>
+        <form class="add-post-form" action="/create-post" method="POST">
+            <h2 class="add-post-title">Add a new post</h2>
+            <img src="../assets/close.png" style="width: 30px;">
+            <label for="title">Title
+                <input type="text" id="title" name="title" placeholder="add title post">
+            </label>
+            <label for="descreption">Descreption
+                <input type="text" id="descreption" name="descreption" placeholder="add descreption post">
+            </label>
+            <button type="submit" class="create-post-btn">Create Post</button>
+        </form>
+    </section>
+</section>
+</body>
+</html>
