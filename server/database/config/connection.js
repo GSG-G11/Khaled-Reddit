@@ -1,3 +1,4 @@
+require('env2')('.env');
 const { Pool } = require('pg');
 
 const {
@@ -26,11 +27,9 @@ if (!dbUrl) {
   throw new Error('database not exists!');
 }
 
-const options = {
-  connnectionString: dbUrl,
+const connection = new Pool({
+  connectionString: dbUrl,
   ssl,
-};
+});
 
-const connection = new Pool(options);
-
-module.exports = { connection };
+module.exports = connection;
