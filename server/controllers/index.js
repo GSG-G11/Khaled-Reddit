@@ -1,3 +1,4 @@
 const { getAllPosts } = require('./getAllPosts');
+const { signUp } = require('./signUp');
 
-module.exports = { getAllPosts };
+module.exports = { getAllPosts, signUp };
