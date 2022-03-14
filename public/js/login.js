@@ -7,5 +7,10 @@ login.addEventListener('submit', (e) => {
   const password = e.target.password.value.trim();
   console.log(username, password);
   postData({ username, password }, '/log-in')
-    .then((res) => res.json()).catch((err) => console.log(err));
+    .then((res) => res.json())
+    .then((res) => {
+      if (res === 'AUTH') {
+        window.location.href = '/user';
+      }
+    });
 });
