@@ -1,27 +1,33 @@
-const { jwtSignPromise, comparepassword } = require('../utils');
+const { jwtSignPromise, comparepassword, CustomError } = require('../utils');
 const { logInValidation } = require('../validation');
 const { getUser } = require('../database/queries');
 
 const logIn = (req, res) => {
   const { username, password } = req.body;
+  let id;
   logInValidation(req.body)
-    .then((data) => getUser(username))
+    .then(() => getUser(username))
     .then((response) => {
       if (response.rows.length === 0) {
-        return res.json({ message: 'wrong username or password' });
+        throw CustomError('wrong username or password', 400);
       }
+      id = response.rows[0].id;
       return response.rows[0];
     })
     .then((userInfo) => comparepassword(password, userInfo.password))
     .then((result) => {
       if (result) {
-        jwtSignPromise(username)
-          .then((token) => res.cookie('info', token).json('AUTH'))
-          .catch((err) => res.json({ message: 'error' }));
+        jwtSignPromise({ id, username })
+          .then((token) => res.status(201).cookie('token', token).json({ msg: 'AUTH', status: 201 }))
+          .catch(() => CustomError('error', 400));
       } else {
-        res.json({ message: 'wrong username or password' });
+        throw CustomError('wrong username or password', 400);
       }
     })
-    .catch((err) => res.json(err));
+    .catch((err) => {
+      if (err.details) {
+        throw CustomError(err.details[0].message, 400);
+      }
+    });
 };
 module.exports = { logIn };
