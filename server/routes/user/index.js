@@ -6,7 +6,7 @@ userRouter.use((req, res, next) => {
   jwtVerifyPromise(token)
     .then((decoded) => {
       console.log(decoded);
-      req.username = decoded;
+      req.userInfo = decoded;
 
       next();
     })
@@ -14,8 +14,7 @@ userRouter.use((req, res, next) => {
 });
 
 userRouter.get('/', (req, res) => {
-  res.send(req.username);
-  // res.send('user');
+  res.send(req.userInfo);
 });
 
 module.exports = { userRouter };
