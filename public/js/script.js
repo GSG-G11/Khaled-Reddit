@@ -22,3 +22,12 @@ fetch('/user/posts')
       renderDomUser(object);
     });
   });
+
+fetch(`/user/profile/${userInfo.username}`)
+  .then((res) => res.json())
+  .then((data) => {
+    clearPosts();
+    data.forEach((object) => {
+      renderDomUser(object);
+    });
+  });
