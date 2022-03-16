@@ -1,20 +1,14 @@
 const userRouter = require('express').Router();
-const { jwtVerifyPromise } = require('../../utils');
+const {
+  handleHome, handleProfile, authorization, logOut, getAllPosts, addPosts,
+} = require('../../controllers');
 
-userRouter.use((req, res, next) => {
-  const token = req.cookies.info;
-  jwtVerifyPromise(token)
-    .then((decoded) => {
-      console.log(decoded);
-      req.userInfo = decoded;
+userRouter.use(authorization);
 
-      next();
-    })
-    .catch(() => console.log('err'));
-});
-
-userRouter.get('/', (req, res) => {
-  res.send(req.userInfo);
-});
+userRouter.get('/posts', getAllPosts);
+userRouter.get('/', handleHome);
+userRouter.get('/profile', handleProfile);
+userRouter.get('/log-out', logOut);
+userRouter.post('/post', addPosts);
 
 module.exports = { userRouter };

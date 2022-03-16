@@ -9,6 +9,7 @@ login.addEventListener('submit', (e) => {
   postData({ username, password }, '/log-in')
     .then((res) => res.json())
     .then((res) => {
+      console.log(res);
       if (res === 'AUTH') {
         window.location.href = '/user';
       }

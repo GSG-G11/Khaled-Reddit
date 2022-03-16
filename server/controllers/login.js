@@ -18,7 +18,7 @@ const logIn = (req, res) => {
     .then((result) => {
       if (result) {
         jwtSignPromise({ id, username })
-          .then((token) => res.status(201).cookie('token', token).json({ msg: 'AUTH', status: 201 }))
+          .then((token) => res.status(201).cookie('token', token).json('AUTH'))
           .catch(() => CustomError('error', 400));
       } else {
         throw CustomError('wrong username or password', 400);
