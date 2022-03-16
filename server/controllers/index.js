@@ -1,9 +1,21 @@
 const { getAllPosts } = require('./getAllPosts');
 const { signUp } = require('./signUp');
 const { logIn } = require('./login');
-const { handleSignUp } = require('./handleSignUp');
-const { loginHandle } = require('./handleLogIn');
+const { authorization } = require('./checkCookies');
+const {
+  handleProfile, handleSignUp, handleLogin, handleHome,
+} = require('./handlers');
+const { logOut, addPosts } = require('./user');
 
 module.exports = {
-  getAllPosts, signUp, logIn, handleSignUp, loginHandle,
+  getAllPosts,
+  signUp,
+  logIn,
+  handleSignUp,
+  handleLogin,
+  handleProfile,
+  handleHome,
+  authorization,
+  logOut,
+  addPosts,
 };
