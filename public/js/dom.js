@@ -126,4 +126,3 @@ const renderDomUser = ((obj) => {
 });
 
 export { renderDom, renderDomUser, clearPosts };
-// export  renderDomUser;
