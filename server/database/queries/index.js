@@ -3,6 +3,7 @@ const { hasUsernameTakenQuery, hasEmailTakenQuery } = require('./hasUserUniqeInf
 const { addNewUserQuery } = require('./addNewUserQuery');
 const { getUser } = require('./getUser');
 const { addPostQuery } = require('./addPostQuery');
+const { getUserPostsQuery } = require('./getUserPostsQuery');
 
 module.exports = {
   getAllPostsQuery,
@@ -11,4 +12,5 @@ module.exports = {
   addNewUserQuery,
   getUser,
   addPostQuery,
+  getUserPostsQuery,
 };

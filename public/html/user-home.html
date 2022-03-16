@@ -24,9 +24,11 @@
     <nav class="navbar">
         <button id="name" class="username"></button>
         <dev class="user-list">
-            <a href="/user" class="home-page">Home</a>
-            <a href="/user/profile" class="profile">Profile</a>
-            <a href="/user/log-out" class="sign-out">sign out</a>
+            <select id="browsers" onchange="location = this.value;">
+                <option value="/user">Home</option>
+                <option value="/user/profile">Profile</option>
+                <option value="/user/log-out">sign out</option>
+            </select>
         </dev>
     </nav>
 </header>
