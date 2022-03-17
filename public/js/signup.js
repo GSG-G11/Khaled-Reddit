@@ -9,5 +9,12 @@ signUp.addEventListener('submit', (e) => {
   const repeatPassword = e.target.repeatpassword.value.trim();
   postData({
     username, email, repeatPassword, password,
-  }, '/sign-up').then((res) => res.json()).catch((err) => console.log(err));
+  }, '/sign-up')
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      if (res === 'AUTH') {
+        window.location.href = '/user';
+      }
+    });
 });
