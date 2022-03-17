@@ -4,6 +4,7 @@ const { addNewUserQuery } = require('./addNewUserQuery');
 const { getUser } = require('./getUser');
 const { addPostQuery } = require('./addPostQuery');
 const { getUserPostsQuery } = require('./getUserPostsQuery');
+const { deletePostQuery } = require('./deletePostQuery');
 
 module.exports = {
   getAllPostsQuery,
@@ -13,4 +14,5 @@ module.exports = {
   getUser,
   addPostQuery,
   getUserPostsQuery,
+  deletePostQuery,
 };
