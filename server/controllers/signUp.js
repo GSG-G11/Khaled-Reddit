@@ -14,7 +14,7 @@ const signUp = (req, res) => {
       if (dbRes) {
         const { id } = dbRes.rows[0];
         jwtSignPromise({ id, username })
-          .then((decoded) => res.status(201).cookie('decoded', decoded).json({ msg: 'AUTH', status: 201 }))
+          .then((decoded) => res.status(201).cookie('token', decoded).json({ msg: 'AUTH', status: 201 }))
           .catch(() => CustomError('error', 400));
       } else {
         throw CustomError('wrong username or password', 400);
