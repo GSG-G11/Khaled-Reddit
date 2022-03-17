@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/profile.css">
     <title>Reddit</title>
 </head>
 <body>
@@ -33,6 +34,21 @@
     </nav>
 </header>
 
+<button id="open" class="add-post">NEW POST</button>
+    <dev class="post-container">
+        <form class="add-post-form">
+    <a id="" ><h1 class="close">&times;</h1></a>
+            <h2 class="add-post-title">Add a new post</h2>
+            <label for="title">Title
+                <input type="text" id="title" name="title" placeholder="add title post">
+            </label>
+            <label for="descreption">Descreption
+                <input type="text" id="description" name="description" placeholder="add descreption post">
+            </label>
+            <button type="submit" class="create-post-btn">Create Post</button>
+        </form>
+    </dev>
+
 <section class="container">
 </section>
 
@@ -40,6 +56,7 @@
 <script src="../js/dom.js"></script>
 <script type="module" src="../js/fetch/getAllPostsAuth.js"></script>
 <script type="module" src="../js/deletePost.js"></script>
+<script type="module" src="../js/postPost.js"></script>
 
 </body>
 </html>
