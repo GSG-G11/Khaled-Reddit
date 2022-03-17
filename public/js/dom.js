@@ -1,3 +1,5 @@
+import deletePost from './deletePost.js';
+
 const posts = document.querySelector('.container');
 const renderDom = ((obj) => {
   const post = document.createElement('div');
@@ -44,6 +46,18 @@ const renderDom = ((obj) => {
   const description = document.createElement('p');
   description.className = 'caption';
   description.textContent = obj.description;
+
+  if (userName === obj.username) {
+    const remove = document.createElement('button');
+    remove.className = 'caption';
+    remove.textContent = 'delete';
+    postInfo.append(remove);
+    remove.addEventListener('click', () => {
+      console.log('userName');
+      console.log(obj);
+      deletePost(obj.id);
+    });
+  }
 
   bodyPost.append(userInfo);
   bodyPost.append(postInfo);
@@ -110,6 +124,9 @@ const renderDomUser = ((obj) => {
   const remove = document.createElement('button');
   remove.className = 'caption';
   remove.textContent = 'delete';
+  remove.addEventListener('click', () => {
+    deletePost(obj.id);
+  });
 
   bodyPost.append(userInfo);
   bodyPost.append(postInfo);

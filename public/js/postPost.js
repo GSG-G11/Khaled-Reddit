@@ -13,7 +13,7 @@ modal.addEventListener('submit', (e) => {
   const { title, description } = e.target;
 
   postData({ title: title.value.trim(), description: description.value.trim(), userId: userInfo.id }, '/user/post')
-    .then(() => console.log(title, description))
+    .then(() => location.reload())
     .then((obj) => renderDomUser(obj[0]))
     .catch((err) => console.log(err));
 });

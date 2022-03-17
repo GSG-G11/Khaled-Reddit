@@ -5,7 +5,9 @@ const { authorization } = require('./checkCookies');
 const {
   handleProfile, handleSignUp, handleLogin, handleHome,
 } = require('./handlers');
-const { logOut, addPosts, getUserPosts } = require('./user');
+const {
+  logOut, addPosts, getUserPosts, deletePost,
+} = require('./user');
 
 module.exports = {
   getAllPosts,
@@ -19,4 +21,5 @@ module.exports = {
   logOut,
   addPosts,
   getUserPosts,
+  deletePost,
 };
